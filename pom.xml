@@ -28,6 +28,13 @@
             <version>${spring-version}</version>
         </dependency>
 
+        <!--Persistence-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.18</version>
+        </dependency>
+
         <!--Others-->
         <dependency>
             <groupId>org.freemarker</groupId>
