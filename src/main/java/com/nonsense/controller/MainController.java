@@ -15,7 +15,7 @@ import javax.validation.Valid;
 @Controller
 public class MainController {
 
-    @Qualifier("jdbcTemplateUserDAO")
+    @Qualifier("hibernateUserDAO")
     @Autowired
     private UserDAO userDAO;
 

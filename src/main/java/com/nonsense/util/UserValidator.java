@@ -11,7 +11,7 @@ import org.springframework.validation.Validator;
 @Component
 public class UserValidator implements Validator {
 
-    @Qualifier("jdbcTemplateUserDAO")
+    @Qualifier("hibernateUserDAO")
     @Autowired
     private UserDAO userDAO;
 
