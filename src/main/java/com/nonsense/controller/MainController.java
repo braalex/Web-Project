@@ -1,10 +1,9 @@
 package com.nonsense.controller;
 
-import com.nonsense.dao.UserDAO;
 import com.nonsense.model.User;
+import com.nonsense.service.UserService;
 import com.nonsense.util.UserValidator;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -15,9 +14,8 @@ import javax.validation.Valid;
 @Controller
 public class MainController {
 
-    @Qualifier("jpaUserDAO")
     @Autowired
-    private UserDAO userDAO;
+    private UserService userService;
 
     @Autowired
     private UserValidator userValidator;
@@ -36,7 +34,7 @@ public class MainController {
 
     @GetMapping("/users")
     public String getUsers(Model model) {
-        model.addAttribute("users", userDAO.getAll());
+        model.addAttribute("users", userService.getAll());
         return "/users";
     }
 
@@ -52,7 +50,7 @@ public class MainController {
         if (result.hasErrors()) {
             return "/sign-up";
         }
-        userDAO.add(user);
+        userService.add(user);
         return "redirect:/users";
     }
 }

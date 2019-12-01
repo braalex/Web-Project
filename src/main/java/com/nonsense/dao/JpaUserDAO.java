@@ -26,7 +26,7 @@ public class JpaUserDAO implements UserDAO {
     @Override
     public User getOne(String email) {
         TypedQuery<User> q = entityManager.createQuery(
-                "select u from User u where email = :email", User.class
+                "select u from User u where u.email = :email", User.class
         );
         q.setParameter("email", email);
         return q.getResultList().stream().findAny().orElse(null);
