@@ -22,6 +22,9 @@ public class User {
     @Email
     private String email;
 
+    @Size(min = 6, message = "Minimum 6 symbols")
+    private String password;
+
     public User() {
     }
 
@@ -47,6 +50,10 @@ public class User {
         return email;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
     public void setId(Long id) {
         this.id = id;
     }
@@ -61,5 +68,9 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
